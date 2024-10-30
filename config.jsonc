@@ -1,0 +1,551 @@
+{
+    "log": {
+        "disabled": false,
+        "level": "info",
+        "timestamp": true
+    },
+    "dns": {
+        "rules": [
+            {
+                "outbound": [
+                    "any"
+                ],
+                "server": "local"
+            },
+            {
+                "disable_cache": true,
+                "geosite": [
+                    "category-ads-all"
+                ],
+                "server": "block"
+            },
+            {
+                "clash_mode": "global",
+                "server": "remote"
+            },
+            {
+                "clash_mode": "direct",
+                "server": "local"
+            }
+        ],
+        "servers": [
+            {
+                "address": "https://1.1.1.1/dns-query",
+                "detour": "节点选择",
+                "tag": "remote"
+            },
+            {
+                "address": "https://223.5.5.5/dns-query",
+                "detour": "direct",
+                "tag": "local"
+            },
+            {
+                "address": "rcode://success",
+                "tag": "block"
+            }
+        ],
+        "strategy": "prefer_ipv4"
+    },
+    "experimental": {
+        "clash_api": {
+            "external_controller": "0.0.0.0:9090",
+            "external_ui": "dashboard"
+        }
+    },
+    "inbounds": [
+        {
+            "domain_strategy": "prefer_ipv4",
+            "listen": "127.0.0.1",
+            "listen_port": 2333,
+            "sniff": true,
+            "sniff_override_destination": true,
+            "tag": "socks-in",
+            "type": "socks",
+            "users": []
+        },
+        {
+            "domain_strategy": "prefer_ipv4",
+            "listen": "127.0.0.1",
+            "listen_port": 2080,
+            "sniff": true,
+            "sniff_override_destination": true,
+            "tag": "mixed-in",
+            "type": "mixed",
+            "users": []
+        }
+    ],
+    "outbounds": [
+        {
+            "tag": "节点选择",
+            "type": "selector",
+            "default": "日本",
+            "outbounds": [
+                "自动选择",
+                "南极洲 01 [V3]",
+                "卢森堡 01 [V3|BT]",
+                "台湾 01 [V3]",
+                "台湾 02 [V3]",
+                "台湾 Hinet [V2|Native]",
+                "土耳其 01 [V2|1.3x]",
+                "土耳其 02 [V2|1.3x]",
+                "巴西 01[V2|1.3x]",
+                "德国 01 [V3]",
+                "德国 02 [V3]",
+                "新加坡 03 [V2]",
+                "新加坡 04 [V3]",
+                "日本 02 [V3]",
+                "日本 03",
+                "日本 04 [V2]",
+                "朝鲜 01 [V3]",
+                "澳大利亚 02 [V3]",
+                "美国 01 [V2]",
+                "美国 AT&T2 [V3|Native]",
+                "美国 AT&T3 [V3|Native]",
+                "美国 AT&T4 [V3|Native]",
+                "美国 AT&T5 [V3|Native]",
+                "美国 Verizon [V3|Native]",
+                "韩国 01 [V3|Native]",
+                "韩国 LG [V3|Native|1.3x]",
+                "香港 01 [V3]",
+                "香港 02 [V2]",
+                "香港 04 [V3|1.5x]",
+                "香港 BGP [V3|Native]",
+                "香港 BGP2 [V3|Native]",
+                "香港 HKBN [V3|Native]",
+                "香港 HKBN2 [V3|Native]",
+                "马来西亚 01 [V3]",
+                "日本"
+            ]
+        },
+        {
+            "tag": "南极洲 01 [V3]",
+            "type": "vmess",
+            "server": "36522.flyrelay.uk",
+            "server_port": 36522,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "卢森堡 01 [V3|BT]",
+            "type": "trojan",
+            "server": "36534.flyrelay.uk",
+            "server_port": 36534,
+            "password": "65c9a70f-80ec-3a42-a069-dfe2093cea0e"
+        },
+        {
+            "tag": "台湾 01 [V3]",
+            "type": "vmess",
+            "server": "36511.flyrelay.uk",
+            "server_port": 36511,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "台湾 02 [V3]",
+            "type": "vmess",
+            "server": "36502.12377.cn.com",
+            "server_port": 36502,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "台湾 Hinet [V2|Native]",
+            "type": "vmess",
+            "server": "36510.flyrelay.uk",
+            "server_port": 36510,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "土耳其 01 [V2|1.3x]",
+            "type": "vmess",
+            "server": "36506.flyrelay.uk",
+            "server_port": 36506,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "土耳其 02 [V2|1.3x]",
+            "type": "vmess",
+            "server": "36505.flyrelay.uk",
+            "server_port": 36505,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "巴西 01[V2|1.3x]",
+            "type": "vmess",
+            "server": "36526.flyrelay.uk",
+            "server_port": 36526,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "德国 01 [V3]",
+            "type": "vmess",
+            "server": "36503.12377.cn.com",
+            "server_port": 36503,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "德国 02 [V3]",
+            "type": "vmess",
+            "server": "36504.flyrelay.uk",
+            "server_port": 36504,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "新加坡 03 [V2]",
+            "type": "vmess",
+            "server": "36520.flyrelay.uk",
+            "server_port": 36520,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "新加坡 04 [V3]",
+            "type": "vmess",
+            "server": "36521.flyrelay.uk",
+            "server_port": 36521,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "日本 02 [V3]",
+            "type": "vmess",
+            "server": "36524.flyrelay.uk",
+            "server_port": 36524,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "日本 03",
+            "type": "vmess",
+            "server": "36525.flyrelay.uk",
+            "server_port": 36525,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "日本 04 [V2]",
+            "type": "vmess",
+            "server": "36523.flyrelay.uk",
+            "server_port": 36523,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "朝鲜 01 [V3]",
+            "type": "vmess",
+            "server": "36507.flyrelay.uk",
+            "server_port": 36507,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "澳大利亚 02 [V3]",
+            "type": "vmess",
+            "server": "36509.flyrelay.uk",
+            "server_port": 36509,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "美国 01 [V2]",
+            "type": "vmess",
+            "server": "36518.flyrelay.uk",
+            "server_port": 36518,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "美国 AT&T2 [V3|Native]",
+            "type": "vmess",
+            "server": "36514.flyrelay.uk",
+            "server_port": 36514,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "美国 AT&T3 [V3|Native]",
+            "type": "vmess",
+            "server": "36515.flyrelay.uk",
+            "server_port": 36515,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "美国 AT&T4 [V3|Native]",
+            "type": "trojan",
+            "server": "36516.flyrelay.uk",
+            "server_port": 36516,
+            "password": "65c9a70f-80ec-3a42-a069-dfe2093cea0e"
+        },
+        {
+            "tag": "美国 AT&T5 [V3|Native]",
+            "type": "trojan",
+            "server": "36517.flyrelay.uk",
+            "server_port": 36517,
+            "password": "65c9a70f-80ec-3a42-a069-dfe2093cea0e"
+        },
+        {
+            "tag": "美国 Verizon [V3|Native]",
+            "type": "vmess",
+            "server": "36519.flyrelay.uk",
+            "server_port": 36519,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "韩国 01 [V3|Native]",
+            "type": "trojan",
+            "server": "36533.flyrelay.uk",
+            "server_port": 36533,
+            "password": "65c9a70f-80ec-3a42-a069-dfe2093cea0e"
+        },
+        {
+            "tag": "韩国 LG [V3|Native|1.3x]",
+            "type": "vmess",
+            "server": "36529.flyrelay.uk",
+            "server_port": 36529,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "香港 01 [V3]",
+            "type": "vmess",
+            "server": "36512.flyrelay.uk",
+            "server_port": 36512,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "香港 02 [V2]",
+            "type": "vmess",
+            "server": "36527.flyrelay.uk",
+            "server_port": 36527,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "香港 04 [V3|1.5x]",
+            "type": "vmess",
+            "server": "36528.flyrelay.uk",
+            "server_port": 36528,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "香港 BGP [V3|Native]",
+            "type": "vmess",
+            "server": "36530.flyrelay.uk",
+            "server_port": 36530,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "香港 BGP2 [V3|Native]",
+            "type": "trojan",
+            "server": "36532.flyrelay.uk",
+            "server_port": 36532,
+            "password": "65c9a70f-80ec-3a42-a069-dfe2093cea0e"
+        },
+        {
+            "tag": "香港 HKBN [V3|Native]",
+            "type": "vmess",
+            "server": "36508.flyrelay.uk",
+            "server_port": 36508,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "香港 HKBN2 [V3|Native]",
+            "type": "vmess",
+            "server": "36501.12377.cn.com",
+            "server_port": 36501,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "马来西亚 01 [V3]",
+            "type": "vmess",
+            "server": "36513.flyrelay.uk",
+            "server_port": 36513,
+            "uuid": "65c9a70f-80ec-3a42-a069-dfe2093cea0e",
+            "security": "auto",
+            "alter_id": 0,
+            "transport": []
+        },
+        {
+            "tag": "direct",
+            "type": "direct"
+        },
+        {
+            "tag": "block",
+            "type": "block"
+        },
+        {
+            "tag": "dns-out",
+            "type": "dns"
+        },
+        {
+            "tag": "自动选择",
+            "type": "urltest",
+            "outbounds": [
+                "南极洲 01 [V3]",
+                "卢森堡 01 [V3|BT]",
+                "台湾 01 [V3]",
+                "台湾 02 [V3]",
+                "台湾 Hinet [V2|Native]",
+                "土耳其 01 [V2|1.3x]",
+                "土耳其 02 [V2|1.3x]",
+                "巴西 01[V2|1.3x]",
+                "德国 01 [V3]",
+                "德国 02 [V3]",
+                "新加坡 03 [V2]",
+                "新加坡 04 [V3]",
+                "日本 02 [V3]",
+                "日本 03",
+                "日本 04 [V2]",
+                "朝鲜 01 [V3]",
+                "澳大利亚 02 [V3]",
+                "美国 01 [V2]",
+                "美国 AT&T2 [V3|Native]",
+                "美国 AT&T3 [V3|Native]",
+                "美国 AT&T4 [V3|Native]",
+                "美国 AT&T5 [V3|Native]",
+                "美国 Verizon [V3|Native]",
+                "韩国 01 [V3|Native]",
+                "韩国 LG [V3|Native|1.3x]",
+                "香港 01 [V3]",
+                "香港 02 [V2]",
+                "香港 04 [V3|1.5x]",
+                "香港 BGP [V3|Native]",
+                "香港 BGP2 [V3|Native]",
+                "香港 HKBN [V3|Native]",
+                "香港 HKBN2 [V3|Native]",
+                "马来西亚 01 [V3]"
+            ]
+        },
+        {
+            "type": "urltest",
+            "tag": "日本",
+            "outbounds": [
+                "日本 02 [V3]",
+                "日本 03",
+                "日本 04 [V2]"
+            ]
+        },
+        {
+            "type": "urltest",
+            "tag": "美国",
+            "outbounds": [
+                "美国 01 [V2]",
+                "美国 AT&T2 [V3|Native]",
+                "美国 AT&T3 [V3|Native]",
+                "美国 AT&T4 [V3|Native]",
+                "美国 AT&T5 [V3|Native]",
+                "美国 Verizon [V3|Native]"
+            ]
+        }
+    ],
+    "route": {
+        "auto_detect_interface": true,
+        "rule_set": [
+            {
+                "type": "remote",
+                "tag": "广告拦截",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-ad.github.io/master/docs/anti-ad-sing-box.srs"
+            },
+            {
+                "tag": "geosite-cn",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs"
+            }
+        ],
+        "rules": [
+            {
+                "rule_set": "广告拦截",
+                "outbound": "block"
+            },
+            {
+                "outbound": "dns-out",
+                "protocol": "dns"
+            },
+            {
+                "clash_mode": "direct",
+                "outbound": "direct"
+            },
+            {
+                "clash_mode": "global",
+                "outbound": "节点选择"
+            },
+            {
+                "rule_set": "geosite-cn",
+                "outbound": "direct"
+            },
+            {
+                "geosite": "cn",
+                "outbound": "direct"
+            }
+        ]
+    }
+}

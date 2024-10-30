@@ -1,0 +1,11 @@
+cache.db
+draft.db
+*.log
+draft.md
+*draft.*
+.vscode
+dashboard
+src/__pycache__
+profile.json
+geoip.db
+geosite.db
