@@ -9,3 +9,5 @@ src/__pycache__
 profile.json
 geoip.db
 geosite.db
+config.jsonc
+config.jsonc

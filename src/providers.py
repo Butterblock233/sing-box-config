@@ -22,6 +22,8 @@ def update_providers(profile_link,profile_path, config_path,output_path):
 	# Do some extra edits
 	config_data['outbounds'][0]['default'] = "日本"
 	config_data['outbounds'][0]['outbounds'] += ["日本"]
+	config_data['outbounds'][0]['outbounds'] += ["美国"]
+
 	# Append groups
 	config_data["outbounds"] += [group.japan_group(config_data)]
 	config_data["outbounds"] += [group.america_group(config_data)]

@@ -20,7 +20,7 @@ def japan_group(config_data):
 	"interrupt_exist_connections": false}
 	"""
 	group={
-	"type": "urltest",
+	"type": "selector",
 	"tag": "日本",
   	"outbounds": []
 	}
