@@ -10,3 +10,4 @@ profile.json
 geoip.db
 geosite.db
 config.jsonc
+*.srs
