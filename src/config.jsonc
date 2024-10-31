@@ -1,0 +1,126 @@
+{
+	/*
+	Thie file is the prototype of config.jsonc,so you can edit or leave comments here.Contents of the file will be processed by python and updated to ../config.jsonc
+	*/
+	"log": {
+		"disabled": false,
+		"level": "info",
+		"timestamp": true
+	},
+	"dns": {
+		"rules": [
+			{
+				"outbound": [
+					"any"
+				],
+				"server": "local"
+			},
+			{
+				"disable_cache": true,
+				"geosite": [
+					"category-ads-all"
+				],
+				"server": "block"
+			},
+			{
+				"clash_mode": "global",
+				"server": "remote"
+			},
+			{
+				"clash_mode": "direct",
+				"server": "local"
+			}
+		],
+		"servers": [
+			{
+				"address": "https://1.1.1.1/dns-query",
+				"detour": "节点选择",
+				"tag": "remote"
+			},
+			{
+				"address": "https://223.5.5.5/dns-query",
+				"detour": "direct",
+				"tag": "local"
+			},
+			{
+				"address": "rcode://success",
+				"tag": "block"
+			}
+		],
+		"strategy": "prefer_ipv4"
+	},
+	"experimental": {
+		"clash_api": {
+			"external_controller": "0.0.0.0:9090",
+			"external_ui": "dashboard"
+		}
+	},
+	"inbounds": [
+		{
+			"domain_strategy": "prefer_ipv4",
+			"listen": "127.0.0.1",
+			"listen_port": 2333,
+			"sniff": true,
+			"sniff_override_destination": true,
+			"tag": "socks-in",
+			"type": "socks",
+			"users": []
+		},
+		{
+			"domain_strategy": "prefer_ipv4",
+			"listen": "127.0.0.1",
+			"listen_port": 2080,
+			"sniff": true,
+			"sniff_override_destination": true,
+			"tag": "mixed-in",
+			"type": "mixed",
+			"users": []
+		}
+	],
+	"outbounds": [],
+	"route": {
+		"auto_detect_interface": true,
+		"rule_set": [
+			{
+				"type": "remote",
+				"tag": "广告拦截",
+				"format": "binary",
+				"url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-ad.github.io/master/docs/anti-ad-sing-box.srs",
+				//"download_detour": "节点选择"
+			},
+			{
+				"tag": "geosite-cn",
+				"type": "remote",
+				"format": "binary",
+				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+				//"download_detour":   "节点选择"
+			}
+		],
+		"rules": [
+			{
+				"rule_set": "广告拦截",
+				"outbound": "block"
+			},
+			{
+				"outbound": "dns-out",
+				"protocol": "dns"
+			},
+			{
+				"clash_mode": "direct",
+				"outbound": "direct"
+			},
+			{
+				"clash_mode": "global",
+				"outbound": "节点选择"
+			},
+			{
+				"rule_set": "geosite-cn",
+				"outbound": "direct"
+			},
+			{
+				"geosite": "cn",
+				"outbound": "direct"
+			}
+		]
+	}
+}
