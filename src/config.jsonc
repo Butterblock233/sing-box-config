@@ -140,12 +140,6 @@
 						]
 					}
 				]
-			},
-			{
-				"tag":"proxy",
-				"type": "local",
-				"format": "binary",
-				"path": "rule-set/proxy.srs"
 			}
 		],
 		"rules": [
@@ -180,8 +174,7 @@
 			{
 				"rule_set": "geosite-cn",
 				"outbound": "direct"
-			},
-			
+			}
 		]
 	}
 }
