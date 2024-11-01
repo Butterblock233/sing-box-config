@@ -10,4 +10,5 @@ build-rule-set:
 	@make -C rule-set
 	@echo "Done"
 clean:
-	make clean -C rule-set
+	@make clean -C rule-set
+	@make clean -C src

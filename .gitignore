@@ -11,3 +11,4 @@ geoip.db
 geosite.db
 config.jsonc
 *.srs
+src/edit.py

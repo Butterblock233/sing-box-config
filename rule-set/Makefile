@@ -7,6 +7,6 @@ ALL:$(SOURCE) clean-json
 	python update_rs.py --rs_path=$< --config_path=../config.jsonc
 	$(SC) $(subst .jsonc,.json,$<) -o $@
 clean-json:
-	rm -rf *.json
-clean:
-	rm -rf *.srs *.json
+	@rm -rf *.json
+clean:clean-json
+	rm -rf *.srs
