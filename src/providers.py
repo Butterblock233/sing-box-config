@@ -1,5 +1,4 @@
 import json
-import subprocess
 import json5
 import group
 provider_link="***REMOVED***"
@@ -16,7 +15,7 @@ def update_providers(profile_link,profile_path, config_path,output_path):
 	with open(profile_path, "r",encoding='utf-8') as file:
 		profile_data = json5.load(file)
 	with open(config_path, "r",encoding='utf-8') as file:
-		config_data = json5.load(file) #Use json5 library to load config.jsonc
+		config_data = json5.load(file) #Use json5 library to load config.jsonc because it have comments
 	# Update outbound_providers
 	config_data['outbounds'] = profile_data['outbounds']
 	# Do some extra edits
@@ -25,8 +24,9 @@ def update_providers(profile_link,profile_path, config_path,output_path):
 	config_data['outbounds'][0]['outbounds'] += ["美国"]
 
 	# Append groups
-	config_data["outbounds"] += [group.japan_group(config_data)]
-	config_data["outbounds"] += [group.america_group(config_data)]
+	config_data["outbounds"] += [group.update_groups(config_data,"日本",type="selector")]
+	config_data["outbounds"] += [group.update_groups(config_data,"美国")]
+
 	#Write updated config to config.jsonc
 	with open(output_path,'w',encoding='utf-8') as file:
 		json5.dump(config_data, file, 
@@ -35,5 +35,4 @@ def update_providers(profile_link,profile_path, config_path,output_path):
 			 quote_keys=True,
 			 trailing_commas=False,
 			 separators=(',', ': '))
-# get_profile(provider_link,"profile.json")
 update_providers(provider_link,"profile.json","config.jsonc","../config.jsonc")

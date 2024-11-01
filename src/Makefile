@@ -1,4 +1,4 @@
 .PHONY=update-provider
 
 update-provider:
-	python ./providers.py
+	python providers.py
