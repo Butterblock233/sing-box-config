@@ -86,14 +86,14 @@
 				"tag": "广告拦截",
 				"format": "binary",
 				"url": "https://raw.githubusercontent.com/privacy-protection-tools/anti-ad.github.io/master/docs/anti-ad-sing-box.srs",
-				"download_detour": "节点选择"
+				"download_detour": "美国"
 			},
 			{
 				"tag": "geosite-cn",
 				"type": "remote",
 				"format": "binary",
 				"url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
-				"download_detour": "节点选择"
+				"download_detour": "美国"
 			},
 			{
 				"tag": "Google Proxy",
