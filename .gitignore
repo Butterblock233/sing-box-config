@@ -12,3 +12,4 @@ geosite.db
 config.jsonc
 *.srs
 src/edit.py
+URL

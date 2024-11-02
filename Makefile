@@ -1,4 +1,4 @@
-.PHONY=ALL clean src rule-set
+.PHONY=ALL clean build-src build-rule-set update
 
 ALL:build-src build-rule-set
 build-src:
@@ -12,3 +12,6 @@ build-rule-set:
 clean:
 	@make clean -C rule-set
 	@make clean -C src
+	rm *.jsonc
+update:
+	@curl `cat URL` -o src/profile.jsonc
