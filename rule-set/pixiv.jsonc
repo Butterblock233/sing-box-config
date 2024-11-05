@@ -2,8 +2,9 @@
 	"version": 2,
 	"rules": [
 		{
-			"domain_keyword": [
-				"spankbang"
+			"domain_suffix": [
+				"fanbox.cc",
+				"pixiv.net"
 			]
 		}
 	],

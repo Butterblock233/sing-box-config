@@ -1,7 +1,7 @@
 import json
 import json5
 import group
-provider_link="***REMOVED***"
+provider_link="https://flyairport.trafficmanager.net/dee495db53a5db97a/link/3IaxvaiExLc7oaDN?singbox=1"
 
 def update_providers(profile_link,profile_path, config_path,output_path):
 	"""Downloads a provider profile from a given link, and updates a config.jsonc with the outbounds from the downloaded provider profile

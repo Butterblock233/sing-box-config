@@ -1,0 +1,19 @@
+{
+	"version": 2,
+	"rules": [
+		{
+			"domain_keyword": [
+				"csdn"
+			],
+			"domain_suffix": [
+				".csdn.net",
+				"csdnimg.cn",
+				"tingyun.com"
+			],
+			"source_port":[
+				55123
+			]
+		}
+	],
+	"outbound": "block"
+}

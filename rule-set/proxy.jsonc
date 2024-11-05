@@ -6,9 +6,17 @@
 				"musescore",
 				"gitlab",
 				"duckduckgo",
-				"huggingface"
+				"huggingface",
+				"ytimg",
+				"googlevideo",
+				"githubusercontent"
+			],
+			"domain_suffix": [
+				"ytimg.com",
+				"googlevideo.com",
+				"raw.githubusercontent.com"
 			]
 		}
 	],
-	"outbound":"节点选择"
+	"outbound": "PROXY"
 }
