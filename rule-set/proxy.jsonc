@@ -9,12 +9,14 @@
 				"huggingface",
 				"ytimg",
 				"googlevideo",
-				"githubusercontent"
+				"googlevideo"
 			],
 			"domain_suffix": [
 				"ytimg.com",
 				"googlevideo.com",
-				"raw.githubusercontent.com"
+				"raw.githubusercontent.com",
+				"ooklaserver.net",
+				"azure.com"
 			]
 		}
 	],
